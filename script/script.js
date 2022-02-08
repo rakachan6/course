@@ -22,12 +22,24 @@ const personalMouvieDB = {
     privat: false
 };
 
-const a = prompt('Какой последний фильм посмотрели?', ''),
-    b = prompt('Какой последний фильм посмотрели?', ''),
-    c = +prompt('Как его оцените?', ''),
-    d = +prompt('Как его оцените?', '');
 
-personalMouvieDB.movies[a] = c;
-personalMouvieDB.movies[b] = d;
+for (let i = 0; i < 2; i++) {
+     let a = prompt('Какой последний фильм посмотрели?', ''),
+    b = +prompt('Как его оцените?', '');
+if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+    personalMouvieDB.movies[a] = b;
+    console.log('Done');
+} else {console.log('Error');
+i--;
+}
+}
 
 console.log(personalMouvieDB);
+
+if (numberOfFilm < 10) {
+    console.log('Слишком мало фильмов');
+} else if (10 <= numberOfFilm < 30) {
+    console.log('Вы классический зритель');
+} else if (30 <= numberOfFilm < 100) {
+    console.log('Вы заядлый киноман');
+} else {console.log('ERROR');}
